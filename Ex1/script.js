@@ -1,8 +1,24 @@
-var nome = prompt("Qual seu nome? ")
-var sobrenome = prompt("Qual seu sobrenome? ")
+var area = document.getElementById('area');
 
-console.log("Olá " + nome + " " + sobrenome)
+function entrar(){
+    var nome = prompt("Digite seu nome: ");
 
-document.write("<h1>Bem vindo " + nome + " " + sobrenome + "</h1>")
+    if (nome === null || nome === '') {
+        area.innerHTML = "Clique no botão para acessar... ";
+        alert("Preencha o campo corretamente!");
+    } else {
+        area.innerHTML = "Bem-vindo " + nome + "   ";
 
-document.write("<img src='https://sujeitoprogramador.com/steve.png' alt='Foto do steve'/>")
+        let botaoSair = document.createElement("button");
+        botaoSair.innerText = "Sair da conta";
+        botaoSair.onclick = sair;
+
+        area.appendChild(botaoSair);
+    }
+}
+
+function sair(){
+    area.innerHTML = "Você saiu!";
+
+    alert("Até mais!");
+}
