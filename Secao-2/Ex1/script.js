@@ -19,7 +19,6 @@ function entrar(){
 
 function sair(){
     area.innerHTML = "Você saiu!";
-
     alert("Até mais!");
 }
 
