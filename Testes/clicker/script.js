@@ -1,6 +1,7 @@
 var cookies = document.getElementById('cookies');
 var dps = document.getElementById('dps');
 var click = document.getElementById('click');
+var cookieImage = document.getElementById('clickerImg');
 var qntdCookies = 0;
 var errorVovo = document.getElementById('errorVovo');
 var errorCursor = document.getElementById('errorCursor');
@@ -14,12 +15,14 @@ var clickPower = 1;
 function clicar() {
     qntdCookies += clickPower;
     cookies.innerHTML = 'Cookies: ' + qntdCookies.toFixed(0);
+    errorCursor.innerHTML = "" ;
+    errorVovo.innerHTML = "";
 }
 
 function vovo() {
     if (qntdCookies >= v) {
         setInterval(() => {
-            qntdCookies += qntdVovos;
+            qntdCookies += 1;
             cookies.innerHTML = 'Cookies: ' + qntdCookies.toFixed(0);
         }, 1000);
         qntdCookies -= v
@@ -53,3 +56,10 @@ function cursor() {
     }
 }
 
+cookieImage.addEventListener('mousedown', function() {
+    cookieImage.style.transform = 'scale(0.8)';
+});
+
+cookieImage.addEventListener('mouseup', function() {
+    cookieImage.style.transform = 'scale(1)';
+});
