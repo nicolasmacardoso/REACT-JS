@@ -1,31 +1,55 @@
 var cookies = document.getElementById('cookies');
 var dps = document.getElementById('dps');
+var click = document.getElementById('click');
 var qntdCookies = 0;
-var erroVovo = document.getElementById('errorVovo');
-var x = 10;
+var errorVovo = document.getElementById('errorVovo');
+var errorCursor = document.getElementById('errorCursor');
+var v = 10;
+var c = 10;
 var vovos = document.getElementById('vovos')
+var cursores = document.getElementById('cursores');
 var qntdVovos = 0;
+var clickPower = 1;
 
 function clicar() {
-    qntdCookies += 1;
-    cookies.innerHTML = 'Cookies: ' + qntdCookies;
+    qntdCookies += clickPower;
+    cookies.innerHTML = 'Cookies: ' + qntdCookies.toFixed(0);
 }
 
 function vovo() {
-    if (qntdCookies >= x) {
+    if (qntdCookies >= v) {
         setInterval(() => {
-            qntdCookies += 1;
-            cookies.innerHTML = 'Cookies: ' + qntdCookies;
+            qntdCookies += qntdVovos;
+            cookies.innerHTML = 'Cookies: ' + qntdCookies.toFixed(0);
         }, 1000);
-        qntdCookies -= x
-        x *= 1.5
+        qntdCookies -= v
+        cookies.innerHTML = 'Cookies: ' + qntdCookies.toFixed(0);
+        v *= 1.5
         qntdVovos += 1;
-        dps.innerHTML = 'Comprar vovó <br> (' + x + ' cookies)';
-        erroVovo.innerHTML = "" 
+        dps.innerHTML = 'Comprar vovó <br> (' + v.toFixed(0) + ' cookies)';
+        errorVovo.innerHTML = "" 
         vovos.innerHTML = "Você possui " + qntdVovos + " vovós que produzem " + qntdVovos + " cookies por segundo"; 
+        errorCursor.innerHTML = "" 
     }
     else {
-        erroVovo.innerHTML = "Você não possui " + x + " cookies."
+        errorVovo.innerHTML = "Você não possui " + v.toFixed(0) + " cookies."
+        errorCursor.innerHTML = "" 
+    }
+}
+
+function cursor() {
+    if (qntdCookies >= c) {
+        qntdCookies -= c;
+        cookies.innerHTML = 'Cookies: ' + qntdCookies.toFixed(0);
+        clickPower += 1;
+        c *= 2;
+        click.innerHTML = 'Comprar cursor <br> (' + c + ' cookies)';
+        cursores.innerHTML = "Você está gerando " + clickPower + " cookies por clique."; 
+        errorCursor.innerHTML = "" ;
+        errorVovo.innerHTML = "";
+    } else {
+        errorCursor.innerHTML = "Você não possui " + c.toFixed(0) + " cookies.";
+        errorVovo.innerHTML = "";
     }
 }
 
