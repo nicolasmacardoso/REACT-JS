@@ -5,12 +5,12 @@ let pessoa = {
     sobrenome: "Machado",
 };
 
-/* 
+
 console.log(pessoa.nome);
 console.log(pessoa.cargo); 
-*/
 
-/* 
+
+
 let nome = "TESTE";
 
 const { nome:nomePessoa, cargo, empresa, sobrenome } = pessoa;
@@ -19,18 +19,17 @@ console.log("NOME DA PESSOA: " + nomePessoa);
 console.log(sobrenome);
 console.log(empresa);
 console.log(cargo); 
-*/
+
 // _____________________________________________________________
 
 let nomes = ["Nícolas", "Lucas", "Henrique"]
-//console.log(nomes[0])
+console.log(nomes[0])
 
-/* 
-let { 0: matheus, 1: henrique } = nomes;
+let { 0: nicolas, 1: lucas } = nomes;
 
-console.log(matheus);
-console.log(henrique); 
-*/
+console.log(nicolas);
+console.log(lucas); 
+
 
 let [ primeiroNome, segundoNome ] = nomes;
 
