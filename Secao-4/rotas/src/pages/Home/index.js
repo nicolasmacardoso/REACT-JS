@@ -12,7 +12,12 @@ function Home() {
         <Link to="/contato">Contato</Link>
         <br/> <br/>
 
-        <Link to="/sobre">Sobre</Link> 
+        <Link to="/sobre">Sobre</Link>
+        <br/> <br/>
+
+        <hr/> <br/> <br/>
+        
+        <Link to="/produto/12345">Acessar Produto 12345</Link> 
       </div>
     );
   }
