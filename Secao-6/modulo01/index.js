@@ -11,25 +11,51 @@ server.use(express.json());
 
 const cursos = ['Node JS', 'JavaScript', 'React Native'];
 
-server.get('/cursos', (req, res) => {
-    return res.json(cursos);
+//Middleware Global
+server.use((req, res, next) => {
+    console.log(`URL CHAMADA: ${req.url}`);
+    
+    return next();
 });
 
-server.get('/cursos/:index', (req, res) => {
-    const { index } = req.params;
+function checkCurso(req, res, next) {
+    if(!req.body.nome) {
+        return res.status(400).json({ error: "Nome do curso é obrigatório!"});
+    }
+    
+    return next();
+}
 
-    return res.json(cursos[index]);
+function checkIndexCurso(req, res, next) {
+    const curso = cursos[req.params.index];
+
+    if(!curso) {
+        return res.status(400).json({ error: "Curso não encontrado!"});
+    }
+
+    req.curso = curso;
+    
+    return next();
+}
+
+server.get('/cursos', (req, res) => {
+    return res.json(cursos);
+    
+});
+
+server.get('/cursos/:index', checkIndexCurso, (req, res) => {
+
+    return res.json(req.curso);
 })
 
-server.post('/cursos', (req, res) => {
+server.post('/cursos', checkCurso, (req, res) => {
     const { nome } = req.body;
-
     cursos.push(nome);
 
     return res.json(cursos);
 });
 
-server.put('/cursos/:index', (req, res) => { 
+server.put('/cursos/:index', checkCurso, checkIndexCurso, (req, res) => { 
     const { index } = req.params;
     const { nome } = req.body;
     
@@ -38,7 +64,7 @@ server.put('/cursos/:index', (req, res) => {
     return res.json(cursos);
 });
 
-server.delete('/cursos/:index', (req, res) => {
+server.delete('/cursos/:index', checkIndexCurso, (req, res) => {
     const { index } = req.params;
     
     cursos.splice(index, 1);
