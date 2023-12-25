@@ -1,0 +1,13 @@
+O que é Node Js?
+- Back-end
+- Rotas: o usuario vai acessar um determinado endereço da aplicação, assim retornamos um código específico
+- não é uma linguagem, é uma plataforma de desenvolvimento de aplicações
+- npm / yarn = instalar bibliotecas e criá-las, gerenciadores de pacotes
+Características do node Js
+- arquitetura event-loop
+    - call stack. (pilha de eventos[funcao3() > 
+                                    funcao2() > 
+                                    funcao1()])
+- single thread, apenas um nucleo do processador
+- non blocking I/O = é possivel retornar requisições sem perder a conexão com a aplicação, possivel atualizar em tempo real
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
