@@ -11,3 +11,55 @@ Características do node Js
 - single thread, apenas um nucleo do processador
 - non blocking I/O = é possivel retornar requisições sem perder a conexão com a aplicação, possivel atualizar em tempo real
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+API REST
+- Fluxo: requisição e resposta
+- frontend: recebe os dados e processa 
+- resposta: através de uma estrutura de dados
+ROTAS:
+- *get http://minhaapi.com/(usuarios) - lista a tabela usuarios
+- *post http://minhaapi.com/(usuarios) - adiciona um item na tabela usuarios
+- *put http://minhaapi.com/(usuarios)/[1] - atualiza o usuario com id 1
+- *delete http://minhaapi.com/(usuarios)/[1] - deleta o usuario com id 1
+* HTTP () ROTA [] PARAMETRO
+Vantagens:
+- vários clientes (front-end)
+- comunicação padronizada
+(web, mobile, desktop)
+JSON (JavaScript, Object Notation)
+{
+    "usuario": {
+        "nome": "Nícolas",
+        "email": "nicolasmacardoso@gmail.com",
+        "sexo": "masculino"
+    }
+}
+Requisição
+- *get http://minhaapi.com/(usuarios)/[1] - mostra as informações do usuario 1
+- *post http://minhaapi.com/(usuarios)
+______________________________________________________________
+|{                                                            |
+|    "nome": "Nícolas",                                       |
+|    "email": "nicolasmacardoso@gmail.com",                   |
+|}                                                            | Body(Request body)
+|_____________________________________________________________|
+
+______________________________________________________________
+|{                                                            |
+|    "token": "123123@gmail.com",                             |
+|}                                                            | Headers
+|_____________________________________________________________|
+
+HTTP Codes
+-1xx: informação
+-2xx: sucesso
+    -200: sucesso
+    -201: criado
+-3xx: redirecionamento
+    -301: movido para sempre
+    -302: movido
+-4xx: erro com clientes
+    -400: requisição errada
+    -401: não autorizado
+    -404: não encontrado
+-5xx: erro do server
+    -500: erro do server
